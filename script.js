@@ -4,7 +4,9 @@ console.log("☕ Coffee assistant frontend loaded - 2025-07-21T17:30:00Z");
 
 (function () {
 	const container = document.getElementById('assistant-container');
-  
+	(function () {
+		const container = document.getElementById('assistant-container');
+		document.body.style.backgroundColor = '#f5efe6';
 	// === Style the container ===
 	container.style.maxWidth = '600px';
 	container.style.margin = '20px auto';
@@ -13,7 +15,7 @@ console.log("☕ Coffee assistant frontend loaded - 2025-07-21T17:30:00Z");
 	container.style.borderRadius = '10px';
 	container.style.backgroundColor = '#fff';
 	container.style.fontFamily = 'sans-serif';
-  
+	
 	// === Heading ===
 	const heading = document.createElement('h2');
 	heading.innerText = '☕ AI Coffee Shop Assistant';
