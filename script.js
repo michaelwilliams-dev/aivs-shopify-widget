@@ -1,3 +1,7 @@
+// 🕒 Version: 2025-07-21T17:30:00Z
+// 📦 Updated to use aivs-coffee-backend.onrender.com
+console.log("☕ Coffee assistant frontend loaded - 2025-07-21T17:30:00Z");
+
 (function () {
 	const container = document.getElementById('assistant-container');
   
@@ -12,7 +16,7 @@
   
 	// === Heading ===
 	const heading = document.createElement('h2');
-	heading.innerText = '☕ Coffee Shop AI Assistant';
+	heading.innerText = '☕ AI Coffee Shop Assistant';
 	container.appendChild(heading);
   
 	// === Form ===
@@ -21,7 +25,7 @@
   
 	const textarea = document.createElement('textarea');
 	textarea.id = 'question';
-	textarea.placeholder = 'Ask a question about VAT, packaging, subscriptions...';
+	textarea.placeholder = 'Ask any question about Coffee...';
 	textarea.style.width = '100%';
 	textarea.style.height = '80px';
 	textarea.style.margin = '10px 0';
@@ -59,7 +63,7 @@
 	  const email = emailInput.value.trim();
 	  if (!question) return;
   
-	  pre.innerText = '⏳ Thinking...';
+	  pre.innerText = '⏳ Coffee Assistant is searching...';
   
 	  try {
 		const response = await fetch('https://aivs-coffee-backend.onrender.com/ask', {
