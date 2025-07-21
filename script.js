@@ -2,8 +2,16 @@
 // 📦 Updated to use aivs-coffee-backend.onrender.com
 console.log("☕ Coffee assistant frontend loaded - 2025-07-21T17:30:00Z");
 
+
 (function () {
 	const container = document.getElementById('assistant-container');
+	if (!container) {
+		console.error('❌ assistant-container not found.');
+		return;
+	}
+
+	// ✅ Add coffee pale background safely
+	document.body.style.backgroundColor = '#f5efe6'
 	
 	// === Style the container ===
 	container.style.maxWidth = '600px';
