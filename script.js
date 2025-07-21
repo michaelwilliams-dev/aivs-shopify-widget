@@ -62,7 +62,7 @@
 	  pre.innerText = '⏳ Thinking...';
   
 	  try {
-		const response = await fetch('https://jr-repository.onrender.com/ask', {
+		const response = await fetch('https://aivs-coffee-backend.onrender.com/ask', {
 		  method: 'POST',
 		  headers: { 'Content-Type': 'application/json' },
 		  body: JSON.stringify({ question, email })
