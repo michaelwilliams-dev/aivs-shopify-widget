@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# But explicitly allow the index file and support files
+!vector_index.json
+!.gitignore
+!package.json
+!package-lock.json
+!index.js
+!vector_store.js
+!docs/
