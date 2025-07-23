@@ -9,3 +9,5 @@
 !index.js
 !vector_store.js
 !docs/
+!server.js
+!buscript.js
