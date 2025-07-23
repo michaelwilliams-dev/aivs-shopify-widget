@@ -1,7 +1,7 @@
-// 🕒 Timestamp: 2025-07-23T09:15Z – Initial blog route added
+// 🕒 Timestamp: 2025-07-23T13:25Z – Adjusted for OpenAI v4 SDK
 import express from 'express';
 import bodyParser from 'body-parser';
-import { Configuration, OpenAIApi } from 'openai';
+import OpenAI from 'openai';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -11,10 +11,10 @@ const PORT = process.env.PORT || 3000;
 // 🔧 Middleware
 app.use(bodyParser.json());
 
-// 🔐 OpenAI setup
-const openai = new OpenAIApi(new Configuration({
+// 🔐 OpenAI v4 setup
+const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
-}));
+});
 
 // 🔍 Simulated FAISS query (replace with your real logic)
 async function queryFaissIndex(topic) {
@@ -43,23 +43,23 @@ ${context}
 Include a headline, short intro, key points, and a wrap-up. Keep it concise and relevant to a coffee business audience.
 `;
 
-    const completion = await openai.createChatCompletion({
+    const completion = await openai.chat.completions.create({
       model: 'gpt-4',
       messages: [{ role: 'user', content: prompt }],
-      temperature: 0.7,
+      temperature: 0.7
     });
 
-    const blogText = completion.data.choices[0].message.content;
+    const blogText = completion.choices[0].message.content;
     res.json({ topic, blogText });
   } catch (error) {
-    console.error('Blog generation failed:', error.message);
+    console.error('Blog generation failed:', error);
     res.status(500).json({ error: 'Blog generation failed' });
   }
 });
 
-// 🔄 Health check (optional)
+// 🔄 Health check
 app.get('/', (req, res) => {
-  res.send('Coffee backend is live.');
+  res.send('Blog backend is live.');
 });
 
 // ▶️ Start server
