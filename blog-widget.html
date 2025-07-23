@@ -19,11 +19,11 @@
       border: 1px solid #ccc;
       border-radius: 10px;
       background: #fff;
-    }
-    .timestamp {
-      font-size: 13px;
-      color: #444;
-      margin-bottom: 12px;
+   // }
+   // .timestamp {
+   //   font-size: 13px;
+   //   color: #444;
+   //   margin-bottom: 12px;
     }
     input[type="text"] {
       width: 100%;
@@ -48,8 +48,8 @@
 </head>
 <body>
   <div id="widget">
-    <div class="timestamp">
-      🕒 ISO Timestamp: <span id="iso-timestamp"></span>
+   // <div class="timestamp">
+    //  🕒 ISO Timestamp: <span id="iso-timestamp"></span>
     </div>
 
     <h3>Blog Assistant</h3>
@@ -60,7 +60,7 @@
 
   <script>
     // Display ISO timestamp immediately on page load
-    document.getElementById('iso-timestamp').textContent = new Date().toISOString();
+   // document.getElementById('iso-stamp').textContent = new Date().toISOString();
 
     // Basic XMLHttpRequest to backend
     document.getElementById('generateBtn').onclick = function () {

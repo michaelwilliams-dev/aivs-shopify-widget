@@ -1,4 +1,4 @@
-// 🕒 Timestamp: 2025-07-23T13:25Z – Adjusted for OpenAI v4 SDK
+// 🕒 stamp: 2025-07-23T13:25Z – Adjusted for OpenAI v4 SDK
 import express from 'express';
 import bodyParser from 'body-parser';
 import OpenAI from 'openai';
