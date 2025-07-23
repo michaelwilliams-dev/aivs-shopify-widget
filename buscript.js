@@ -1,6 +1,4 @@
 
-// 📦 Updated to use aivs-coffee-backend.onrender.com
-
 
 (function () {
 	const container = document.getElementById('assistant-container');
