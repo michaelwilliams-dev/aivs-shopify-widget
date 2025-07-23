@@ -4,6 +4,7 @@
 # But explicitly allow the index file and support files
 !vector_index.json
 !.gitignore
+!blog-widget.html
 !package.json
 !package-lock.json
 !index.js
