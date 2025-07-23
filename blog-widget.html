@@ -1,0 +1,92 @@
+<p style="font-size: 13px; color: #444;">
+  🕒 ISO Timestamp: 2025-07-23T14:16:15.829Z
+</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Blog Assistant Widget</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      font-size: 14px;
+      margin: 0;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    #widget {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background: #fff;
+    }
+    .timestamp {
+      font-size: 13px;
+      color: #444;
+      margin-bottom: 12px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      font-size: 14px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    pre {
+      white-space: pre-wrap;
+      background: #f0f0f0;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="widget">
+    <div class="timestamp">
+      🕒 ISO Timestamp: <span id="iso-timestamp"></span>
+    </div>
+
+    <h3>Blog Assistant</h3>
+    <input type="text" id="topicInput" placeholder="Enter blog topic" />
+    <button id="generateBtn">Generate</button>
+    <pre id="output"></pre>
+  </div>
+
+  <script>
+    // Display ISO timestamp immediately on page load
+    document.getElementById('iso-timestamp').textContent = new Date().toISOString();
+
+    // Basic XMLHttpRequest to backend
+    document.getElementById('generateBtn').onclick = function () {
+      var topic = document.getElementById('topicInput').value;
+      var output = document.getElementById('output');
+      output.textContent = "Generating...";
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "https://aivs-blog-backend.onrender.com/api/blog-draft", true);
+      xhr.setRequestHeader("Content-Type", "application/json");
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            var res = JSON.parse(xhr.responseText);
+            output.textContent = res.blogText || "⚠️ No blog returned.";
+          } else {
+            output.textContent = "❌ Error " + xhr.status + ": Failed to generate blog.";
+          }
+        }
+      };
+
+      xhr.send(JSON.stringify({ topic: topic }));
+    };
+  </script>
+</body>
+</html>
