@@ -1,6 +1,6 @@
 
 // 📦 Updated to use aivs-coffee-backend.onrender.com
-console.log("☕ Coffee assistant frontend loaded - 2025-07-21T17:30:00Z");
+
 
 (function () {
 	const container = document.getElementById('assistant-container');
