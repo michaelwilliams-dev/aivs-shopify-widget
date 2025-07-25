@@ -1,7 +1,7 @@
-// 🕒 Version: 2025-07-21T17:30:00Z xx
+// 🕒 Version: 2025-07-21T17:30:00Z xxx
 // 📦 Updated to use aivs-coffee-backend.onrender.com
 //test 123 
-console.log("☕ `Blog`assistant frontend loaded - 2025-07-21T17:30:00Z");
+console.log("☕ Coffee assistant frontend loaded - 2025-07-21T17:30:00Z");
 
 
 (function () {
@@ -25,7 +25,7 @@ console.log("☕ `Blog`assistant frontend loaded - 2025-07-21T17:30:00Z");
 	
 	// === Heading ===
 	const heading = document.createElement('h2');
-	heading.innerText = '☕ AI Blog Assistant';
+	heading.innerText = '☕ AI Coffee Shop Assistant';
 	container.appendChild(heading);
   
 	// === Form ===
@@ -72,7 +72,7 @@ console.log("☕ `Blog`assistant frontend loaded - 2025-07-21T17:30:00Z");
 	  const email = emailInput.value.trim();
 	  if (!question) return;
   
-	  pre.innerText = '⏳ Blog Assistant is searching...';
+	  pre.innerText = '⏳ Coffee Assistant is searching...';
   
 	  try {
 		const response = await fetch('https://aivs-coffee-backend.onrender.com/ask', {
