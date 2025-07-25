@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>☕ Coffee Assistant</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      font-size: 14px;
+      margin: 0;
+      padding: 20px;
+      background: #f5efe6;
+    }
+    #assistant {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background: #fff;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      font-size: 14px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 8px 16px;
+      font-size: 14px;
+      background: #7b4e2e;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    pre {
+      white-space: pre-wrap;
+      background: #f0f0f0;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="assistant">
+    <h2>☕ AI Coffee Shop Assistant</h2>
+    <textarea id="questionInput" placeholder="Ask any question about coffee..."></textarea>
+    <input type="email" id="emailInput" placeholder="Your email (optional)" />
+    <button onclick="submitQuestion()">Ask</button>
+    <pre id="responseBox">🧠 Your response will appear here.</pre>
+  </div>
+
+  <script>
+    function submitQuestion() {
+      const question = document.getElementById('questionInput').value;
+      const email = document.getElementById('emailInput').value;
+      const output = document.getElementById('responseBox');
+      output.textContent = "⏳ Thinking...";
+
+      fetch("https://aivs-coffee-backend.onrender.com/ask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question, email })
+      })
+      .then(res => res.json())
+      .then(data => {
+        output.textContent = data.answer || "⚠️ No answer returned.";
+      })
+      .catch(err => {
+        console.error(err);
+        output.textContent = "❌ Failed to contact assistant.";
+      });
+    }
+  </script>
+</body>
+</html>
