@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "docx": "^9.5.1",
+    "openai": "^5.10.1",
+    "pdf-parse": "^1.1.1",
+    "pdfjs-dist": "^5.3.93",
+    "pdfkit": "^0.17.1"
+  }
+}
